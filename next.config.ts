@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 const config: NextConfig = {
-  distDir: ".next-build",
+  // Vercel's Next.js adapter expects the standard output directory. Keep the
+  // alternate local directory for the Windows/OneDrive cache workaround only.
+  distDir: process.env.VERCEL === "1" ? ".next" : ".next-build",
   poweredByHeader: false,
   async headers() {
     return [

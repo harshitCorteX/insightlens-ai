@@ -26,7 +26,7 @@ The app relies on Vercel's platform-set client forwarding header for the IP budg
 
 Use the free Vercel subdomain for launch. Check Hobby eligibility, provider billing and resource quotas; the application does not provision paid services or purchase anything. A global hourly budget limits request volume but is not exact spend protection.
 
-The checked-in scripts use Next.js's supported webpack compiler and `.next-build` output directory. The default Turbopack compiler failed to connect to its CSS subprocess on this Windows environment, and OneDrive marked its old `.next` output read-only. A fresh webpack output passed production checks. No application or TypeScript validation is disabled.
+The checked-in scripts use Next.js's supported webpack compiler. Vercel builds use the standard `.next` output directory; local builds use `.next-build`. The default Turbopack compiler failed to connect to its CSS subprocess on this Windows environment, and OneDrive marked its old `.next` output read-only. The alternate local directory is therefore kept out of Vercel's build path. Leave Vercel's Output Directory override disabled. No application or TypeScript validation is disabled.
 
 ## Preview gates
 
